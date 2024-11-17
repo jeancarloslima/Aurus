@@ -1,0 +1,146 @@
+﻿body {
+    background-color: var(--cinza);
+}
+
+input {
+    font-family: var(--fonte-primaria);
+    font-size: 1rem;
+    font-weight: 500;
+    padding-left: 5px;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100dvh - 188px);
+    padding: 2rem 0;
+}
+
+.card-pagamento {
+    background-color: var(--branco);
+    width: 800px;
+    padding: 2rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.pagamento-titulo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--cor-primaria);
+}
+
+.formulario-pagamento {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.campo-formulario {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.campos-formulario-curto .campo-formulario {
+    width: 250px;
+}
+
+.campo-formulario__span {
+    font-weight: 600;
+}
+
+.campos-formulario-curto {
+    display: flex;
+    gap: 4rem;
+}
+
+.campo-formulario__span {
+    padding-bottom: 10px;
+}
+
+.formulario-dois-campos {
+    display: flex;
+    gap: 2rem;
+}
+
+.campo-formulario__input {
+    border: 2px solid transparent;
+    border-bottom-color: var(--cinza);
+    outline: none;
+    transition: .5s ease-in-out;
+}
+
+    .campo-formulario__input:focus {
+        border-bottom-color: var(--cor-primaria);
+    }
+
+.formulario-dois-campos input,
+#txtCVV {
+    width: 60px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.campo-formulario-erro-texto {
+    color: var(--cor-erro);
+    height: 16px;
+    margin-top: 7px;
+}
+
+.btn-finalizar-pagamento {
+    width: 203px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--preto);
+    text-decoration: none;
+    margin-left: 1rem;
+    transition: .5s;
+    pointer-events: none;
+}
+
+    .btn-finalizar-pagamento:hover {
+        color: var(--cor-primaria);
+    }
+
+@media (max-width: 1000px) {
+    .card-pagamento {
+        width: 80dvw;
+    }
+}
+
+@media (max-width: 550px) {
+    input {
+        width: 100%;
+    }
+
+    .card-pagamento,
+    .formulario-pagamento,
+    .campo-formulario {
+        align-items: center;
+    }
+
+    .campos-formulario-curto {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .card-pagamento,
+    .formulario-pagamento,
+    .campo-formulario {
+        width: 250px;
+    }
+
+    .pagamento-titulo {
+        text-align: center;
+    }
+}

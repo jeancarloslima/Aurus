@@ -1,0 +1,187 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    /* Cores */
+    --cor-primaria: #003858;
+    --cor-secundaria: #D6A74D;
+    --cor-erro: #f71f1f;
+    --cor-sucesso: #02b802;
+    --branco: #FFF;
+    --preto: #000;
+    --cinza: #E3E3E3;
+    --cinza-escuro: #696969;
+    /* Fontes */
+    --fonte-primaria: "Montserrat", sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: var(--fonte-primaria);
+    background-color: var(--branco);
+    color: var(--preto);
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+    background-color: var(--cor-primaria);
+}
+
+.menu-container {
+    position: relative;
+}
+
+.menu-button {
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 60px;
+    cursor: pointer;
+    position: relative;
+}
+
+.menu-button-bar {
+    width: 80px;
+    height: 5px;
+    background-color: var(--cor-secundaria);
+    border-radius: 8px;
+    transition: .5s;
+}
+
+    .menu-button-bar::after {
+        content: '';
+        width: 80px;
+        height: 5px;
+        background-color: var(--cor-secundaria);
+        border-radius: 8px;
+        display: block;
+        position: absolute;
+        top: 0px;
+        transition: .5s;
+    }
+
+    .menu-button-bar::before {
+        content: '';
+        width: 80px;
+        height: 5px;
+        background-color: var(--cor-secundaria);
+        border-radius: 8px;
+        display: block;
+        position: absolute;
+        bottom: 0;
+        transition: .5s;
+    }
+
+.menu-container.ativado .menu-button-bar {
+    background-color: transparent;
+}
+
+    .menu-container.ativado .menu-button-bar::after {
+        transform: rotate(45deg);
+        top: 30px;
+    }
+
+    .menu-container.ativado .menu-button-bar::before {
+        transform: rotate(-45deg);
+        top: 30px;
+    }
+
+.menu {
+    width: 300px;
+    height: 0px;
+    background-color: var(--cor-primaria);
+    color: var(--branco);
+    position: absolute;
+    left: -64px;
+    top: 92px;
+    transition: .3s;
+}
+
+.menu-container.ativado .menu {
+    height: calc(100dvh - 124px);
+}
+
+.menu-container.ativado .menu-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-list {
+    display: none;
+}
+
+.menu-list-item {
+    width: 100%;
+    height: 100px;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+    .menu-list-item:hover,
+    .menu-list-item.item-ativo {
+        background-color: var(--branco);
+    }
+
+        .menu-list-item:hover a,
+        .menu-list-item.item-ativo a {
+            color: var(--cor-primaria);
+        }
+
+    .menu-list-item a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        font-size: 2rem;
+        font-weight: 500;
+        color: var(--branco);
+        text-decoration: none;
+    }
+
+@media (max-width: 800px) {
+    .menu {
+        width: 100dvw;
+    }
+}
+
+@media (max-width: 450px) {
+    .header-container {
+        padding: 2rem;
+    }
+
+    .menu-button-bar {
+        width: 50px;
+        height: 3px;
+    }
+
+        .menu-button-bar::after {
+            width: 50px;
+            height: 3px;
+        }
+
+        .menu-button-bar::before {
+            width: 50px;
+            height: 3px;
+        }
+
+    .menu {
+        left: -32px;
+    }
+}
